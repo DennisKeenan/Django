@@ -6,11 +6,13 @@
     <title>Testing</title>
 </head>
 <body>
-    <h1>
-        Hello World!
-    </h1>
-    <p>
-        Welcome to the Badminton Club wesbite!
-    </p>
+   <h1>Members</h1>
+   <ol>
+    {%for i in MyMembers%}
+    <li>
+       <a href="detail/{{i.id}}">{{i.First_Name}}</a> 
+    </li>
+    {%endfor%}
+   </ol>
 </body>
 </html>
