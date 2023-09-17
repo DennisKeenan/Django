@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Member
 # Create your views here.
+def main(request):
+    template=loader.get_template("home.html")
+    return HttpResponse(template.render())
 def members(request):
     MyMembers=Member.objects.all().values()
     template=loader.get_template('index.html')
@@ -17,6 +20,3 @@ def details(request,id):
         'MyMember':MyMember
     }
     return HttpResponse(template.render(Context,request))
-def main(request):
-    template=loader.get_template("home.html")
-    return HttpResponse(template.render())
