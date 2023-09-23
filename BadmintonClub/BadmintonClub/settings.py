@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7a23x7wiimr6pn5#%_#e$(oegf(7wb^8*(la(m1@m$!pu^!^)q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','LocalHost']
 
@@ -117,7 +118,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# STATIC_URL = 'static/'
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "/var/www/static/",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -129,7 +134,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STATICFILES_DIRS=(
 #     os.path.join(BASE_DIR,'static'),
 
+# SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+# STATIC_ROOT = (os.path.join(SITE_ROOT, 'static_files/'))
+# STATICFILES_DIRS = (
+#   os.path.join(SITE_ROOT, 'static/'),
 # )
-
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / STATIC_URL
