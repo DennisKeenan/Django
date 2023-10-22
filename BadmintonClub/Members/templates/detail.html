@@ -1,8 +1,10 @@
 {% extends "main.html" %}
 {% block title %} Members Detail {% endblock title %}
 {% block content %}
+<div class="mycard">
     <h1>{{MyMember.First_Name}} {{MyMember.Last_Name}}</h1>
     <p>Phone: {{MyMember.Phone_Number}}</p>
     <p>Join Date: {{MyMember.Join}}</p>
-    <p>Back <a href="/members"></a></p>
+    <p><a href="/members">Back</a></p>
+</div>
 {% endblock content %}    
